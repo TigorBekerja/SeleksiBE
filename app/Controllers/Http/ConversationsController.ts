@@ -13,6 +13,19 @@ export default class ConversationsController {
             return response.status(500).json({ error: 'Failed to fetch conversations' })
         }
     }
+    public async show_messages({ params, response }: HttpContextContract) {
+        try {
+            // ambil messages berdasarkan conversationId
+            const pivots = await Pivot.query().where('conversationId', params.id)
+            if (pivots.length === 0) {
+                return response.status(404).json({ error: 'No messages found for this conversation' })
+            }
+            const messages = await Message.query().whereIn('id', pivots.map(p => p.messageId))            
+            return response.json(messages)
+        } catch (error) {
+            return response.status(500).json({ error: 'Failed to fetch messages for conversation' })
+        }
+    }
     public async store({ params, response }: HttpContextContract) {
         const { v4: uuidv4 } = await import('uuid')
         const conversation = await Conversation.create({
