@@ -9,7 +9,7 @@ export default class Message extends BaseModel {
   @column()
   public message: string
   @column()
-  public additonalMessage?: string
+  public additionalMessage?: string
   
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

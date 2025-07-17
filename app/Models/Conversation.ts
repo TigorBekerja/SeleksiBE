@@ -8,7 +8,7 @@ export default class Conversation extends BaseModel {
   @column()
   public sessionId: string
   @column()
-  public lastMessageId: number
+  public lastMessageId?: number
 
   @belongsTo(() => Message, {
     foreignKey: 'lastMessageId',
