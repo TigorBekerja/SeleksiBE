@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
-export default class Message extends BaseModel {
+export default class Pivot extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
