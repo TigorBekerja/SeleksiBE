@@ -1,5 +1,5 @@
 # Seleksi Magang Backend Developer
-Dokumentasi penggunan REST API dengan menggunakan AdonisJS versi 5 dan PostgreSQL.
+Dokumentasi penggunan REST API dengan menggunakan AdonisJS versi 5 dan PostgreSQL. User dapat mengirimkan pesan ke chatbot, dan menerima jawaban. Mendapatkan seluruh conversation beserta messagesnya atau messages berdasarkan conversationId atau sessionId-nya. User dapat menghapus conversation atau message. User dapat menambahkan hubungan antara messages dan conversation secara manual melalui pivots. Terdapat validasi untuk memberikan pertanyaan kepada chatbot.
 
 ## 🧭 Base URL
 http://127.0.0.1:3333
