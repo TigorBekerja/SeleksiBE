@@ -47,6 +47,7 @@ Menghapus pesan berdasarkan idnya.
 ### ✅ Questions
 #### `POST /questions`
 Membuat pertanyaan baru. Pertanyaan akan disimpan ke Messages, beserta dengan jawabannya.
+
 **Body (JSON):**
 ```json
 {
@@ -76,6 +77,8 @@ Menampilkan data pivot (relasi antara message dan conversation).
 
 #### `post /pivots`
 Membuat relasi antara message dan conversations.
+
+**Body (JSON):**
 ```json
 {
   "conversationId": "12",
