@@ -66,7 +66,7 @@ Membuat pertanyaan baru. Pertanyaan akan disimpan ke Messages, beserta dengan ja
 **Deskripsi**
 | Nama               | Tipe   | Deskripsi                                                                 | Batasan                    |
 |--------------------|--------|---------------------------------------------------------------------------|----------------------------|
-| `conversationId`         | integer | Acuan conversationId, jika tidak ada maka api akan generate conversation baru.                        | optional     |
+| `conversationId`         | integer | Acuan conversationId, jika tidak ada maka API akan generate conversation baru.                        | optional     |
 | `senderType` | string | Tipe sender.     | wajib, user atau bot     |
 | `message` | string | Pertanyaan yang akan diajukan.     | wajib, maksimal 1000 karakter, minimal 1 karakter     |
 | `additionalMessage` | string | Konteks tambahan pada pertanyaan.     | optional, maksimal 2000 karakter     |
