@@ -3,6 +3,7 @@ import Message from 'App/Models/Message'
 import Conversation from 'App/Models/Conversation'
 import Pivot from 'App/Models/Pivot'
 import axios from 'axios'
+import MessageValidator from 'App/Validators/MessageValidator'
 
 export default class MessagesController {
     public async index({ response }: HttpContextContract) {
@@ -16,7 +17,9 @@ export default class MessagesController {
     }
     public async store({ request, response }: HttpContextContract) {
         try {
+            // Validate and create a new message
             const dataMsg = request.only(['senderType', 'message', 'additionalMessage'])
+            await request.validate(MessageValidator)
             const message = await Message.create(dataMsg)
 
             const conversationId = request.input('conversationId')
@@ -61,8 +64,8 @@ export default class MessagesController {
             const answer = botResponse.data.data.message[0].text || 'No response from bot'
             return response.created({answer})
         } catch (error) {
-            return response.status(500).json({ error: error.message || 'Failed to create message' })
-        }       
+            return response.status(500).json({ error: error.messages})
+        }
     }
     public async destroy({ params, response }: HttpContextContract) {
     try {

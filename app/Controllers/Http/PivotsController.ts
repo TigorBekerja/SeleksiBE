@@ -20,13 +20,4 @@ export default class PivotsController {
             return response.status(500).json({ error: 'Failed to create pivot' })
         }
     }
-    public async destroy({ params, response }: HttpContextContract) {
-        try {
-            const pivot = await Pivot.findOrFail(params.id)
-            await pivot.delete()
-            return response.status(204).send(true)
-        } catch (error) {
-            return response.status(500).json({ error: 'Failed to delete pivot' })
-        }
-    }
 }

@@ -7,8 +7,20 @@ export default class ConversationsController {
     public async index({ response }: HttpContextContract) {
         try {
             // ambil seluruh conversations
-            const conversations = await Conversation.query()
-            return response.json(conversations)
+            const conversations = await Conversation.query().preload('pivots', (pivotQuery) => {
+                pivotQuery.preload('message')
+            })
+            const result = conversations.map((conversation) => {
+                return {
+                    id: conversation.id,
+                    session_id: conversation.sessionId,
+                    last_message_id: conversation.lastMessageId,
+                    created_at: conversation.createdAt,
+                    updated_at: conversation.updatedAt,
+                    messages: conversation.pivots.map((pivot) => pivot.message),
+                }
+            })
+            return response.json(result)
         } catch (error) {
             return response.status(500).json({ error: 'Failed to fetch conversations' })
         }
@@ -65,7 +77,7 @@ export default class ConversationsController {
                 for (const message of messages) {
                     await message.delete()
                 }
-                await pivot.delete()
+                //await pivot.delete()
             }
             await conversation.delete()
             return response.status(204).send(true)

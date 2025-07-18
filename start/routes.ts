@@ -35,4 +35,3 @@ Route.delete('/messages/:id', 'MessagesController.destroy')
 
 Route.get('/pivots', 'PivotsController.index')
 Route.post('/pivots', 'PivotsController.store')
-Route.delete('/pivots/:id', 'PivotsController.destroy')

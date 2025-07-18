@@ -15,6 +15,7 @@ export default class Pivot extends BaseModel {
     foreignKey: 'conversationId',
   })
   public conversation: BelongsTo<typeof Conversation>
+  
   @belongsTo(() => Message, {
     foreignKey: 'messageId',
   })
