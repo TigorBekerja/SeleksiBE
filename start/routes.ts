@@ -27,7 +27,7 @@ Route.get('/conversations', 'ConversationsController.index')
 Route.post('/conversations', 'ConversationsController.store')
 Route.put('/conversations/:id', 'ConversationsController.update')
 Route.delete('/conversations/:id', 'ConversationsController.destroy')
-Route.get('/conversations/:id', 'ConversationsController.show_messages')
+Route.get('/conversations/:id_or_uuid', 'ConversationsController.show_messages')
 
 Route.get('/messages', 'MessagesController.index')
 Route.post('/messages', 'MessagesController.store')
