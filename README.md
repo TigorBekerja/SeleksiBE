@@ -1,5 +1,5 @@
 # Seleksi Magang Backend Developer
-Dokumentasi penggunan REST API 
+Dokumentasi penggunan REST API dengan menggunakan AdonisJS versi 5 dan PostgreSQL.
 
 ## 🧭 Base URL
 http://127.0.0.1:3333
